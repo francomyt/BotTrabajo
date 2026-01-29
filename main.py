@@ -6,7 +6,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
 import os
 
-# --- CONFIGURACIÓN DE GOOGLE SHEETS ---
+# --- CONFIGURACIÓN DE GOOGLE SHEETS --- 
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 
 # Intentar conectar con el nombre de archivo que tienes en tu carpeta
@@ -89,6 +89,7 @@ async def panel(ctx):
 # Usar variable de entorno para el token (Seguridad Railway) 
 token = os.getenv('DISCORD_TOKEN')
 bot.run(token)
+
 
 
 
