@@ -86,8 +86,9 @@ async def on_ready():
 async def panel(ctx):
     await ctx.send("### 🏢 REGISTRO LABORAL", view=FichajeView())
 
-# Usar variable de entorno para el token (Seguridad Railway)
+# Usar variable de entorno para el token (Seguridad Railway) 
 token = os.getenv('DISCORD_TOKEN')
 bot.run(token)
+
 
 
