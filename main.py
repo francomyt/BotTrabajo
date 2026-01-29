@@ -108,4 +108,5 @@ async def reporte(ctx, miembro: discord.Member):
     await ctx.send(f"📊 **{miembro.display_name}** ha acumulado un total de **{round(total_horas, 2)} horas**.")
 
 # TOKEN R
-bot.run('TMTQ2NjQ5MjExMjkyNDA0OTYwMQ.GF_eKz.jzOULmvd2DdQThDKd-dk_qG7cLwd2qybgxRTu8')
+
+bot.run('MTQ2NjQ5MjExMjkyNDA0OTYwMQ.GUBC0b.z5z36kWDuZs2AMqkbm_V6aOK9YbPk_d45YEmkQ')
