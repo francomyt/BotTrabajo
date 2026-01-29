@@ -109,4 +109,8 @@ async def reporte(ctx, miembro: discord.Member):
 
 # TOKEN R
 
-bot.run('MTQ2NjQ5MjExMjkyNDA0OTYwMQ.GUBC0b.z5z36kWDuZs2AMqkbm_V6aOK9YbPk_d45YEmkQ')
+import os
+
+# Al final de tu archivo, reemplaza la línea bot.run por esta:
+token = os.getenv('DISCORD_TOKEN')
+bot.run(token)
