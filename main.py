@@ -7,13 +7,22 @@ from datetime import datetime
 
 # --- CONFIGURACIÓN DE GOOGLE SHEETS ---
 # El código ahora buscará el archivo que renombraste o el original
+# --- CONFIGURACIÓN DE GOOGLE SHEETS ---
+scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+
+# IMPORTANTE: Asegúrate de que el archivo JSON esté en GitHub con este nombre exacto
+JSON_FILE = 'bottrabajo-97446701ad69.json' 
+
 try:
-    scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-    creds = ServiceAccountCredentials.from_json_keyfile_name('credentials.json', scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_name(JSON_FILE, scope)
     client = gspread.authorize(creds)
-    # IMPORTANTE: Asegúrate de que tu Excel se llame exactamente "Control de Asistencia"
-    sheet = client.open("Control de Asistencia").sheet1 
+    # IMPORTANTE: Tu Excel en Drive DEBE llamarse exactamente así
+    sheet = client.open("Control de Asistencia").sheet1
+    print("✅ Conexión a Google Sheets exitosa")
 except Exception as e:
+    print(f"❌ ERROR CRÍTICO AL CONECTAR SHEETS: {e}")
+    # Esto evitará que el bot suba si hay error de conexión
+    raise e
     print(f"Error al conectar con Google Sheets: {e}")
 
 # --- CONFIGURACIÓN DEL BOT ---
@@ -114,3 +123,4 @@ import os
 # Al final de tu archivo, reemplaza la línea bot.run por esta:
 token = os.getenv('DISCORD_TOKEN')
 bot.run(token)
+
